@@ -1,0 +1,44 @@
+#navbar {
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+#navbar .brand{
+    display: flex;
+    align-items: center;
+}
+#navbar .nav-items {
+    list-style: none;
+
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    display: flex;
+    align-items: center;
+}
+#navbar .nav-item {
+    display: block;
+    color: darkgrey;
+    background-color: white;
+    text-align: center;
+    padding: 9px 20px;
+    text-decoration: none;
+}
+#navbar .nav-item:hover {
+    color: rgba(0, 0, 0, 0.60);
+    background-color: white;
+}
+#navbar #cart {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+}
+#navbar #cart:hover {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.75);
+
+    transition: 0.5s;
+}

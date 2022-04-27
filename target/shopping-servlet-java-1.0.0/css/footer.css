@@ -1,0 +1,70 @@
+footer {
+    display: flex;
+    justify-content: center;
+}
+footer .content {
+    width: 100%;
+    max-width: 1140px;
+    padding-top: 120px;
+    padding-bottom: 60px;
+
+    display: grid;
+    justify-items: start;
+    align-items: start;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    grid-template-areas: ". . . . .";
+}
+footer .brand {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+footer .header {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+footer .listing {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+footer .link {
+    margin-bottom: 15px;
+    transition: color 200ms ease, opacity 200ms ease;
+    font-size: 14px;
+    text-decoration: none;
+    color: #43464d;
+    background-color: transparent;
+    line-height: 28px;
+    font-weight: 400;
+}
+footer .menu-section {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+footer .categories-section {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+footer .help-section {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+footer .follow-section {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
