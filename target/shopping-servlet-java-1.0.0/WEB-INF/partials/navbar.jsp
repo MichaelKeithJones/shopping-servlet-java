@@ -11,6 +11,6 @@
         <a class="nav-item" href="/products">Products</a>
         <a class="nav-item" href="/about">About</a>
         <a class="nav-item" href="/contact">Contact</a>
-        <a class="nav-item" href="#" id="cart">Cart 0</a>
+        <a class="nav-item" href="#" id="cart-button">Cart 0</a>
     </div>
 </nav>

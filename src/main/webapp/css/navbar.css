@@ -31,12 +31,12 @@
     color: rgba(0, 0, 0, 0.60);
     background-color: white;
 }
-#navbar #cart {
+#navbar #cart-button {
     color: white;
     background-color: rgba(0, 0, 0, 0.85);
     overflow: hidden;
 }
-#navbar #cart:hover {
+#navbar #cart-button:hover {
     color: white;
     background-color: rgba(0, 0, 0, 0.75);
 

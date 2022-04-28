@@ -21,12 +21,12 @@
             <%@ include file="/css/list.css"%>
             <%@ include file="/css/newsletter.css"%>
             <%@ include file="/css/footer.css"%>
+            <%@ include file="/css/modal.css"%>
         </style>
     </head>
     <body>
 
         <jsp:include page="partials/navbar.jsp" />
-
         <main>
             <div class="container">
                 <div id="intro-header">
@@ -84,8 +84,12 @@
             </div>
             <jsp:include page="partials/newsletter.jsp" />
         </main>
-
         <jsp:include page="partials/footer.jsp" />
 
+        <jsp:include page="partials/modal.jsp" />
+
+    <script>
+        <%@ include file="/js/modal.js"%>
+    </script>
     </body>
 </html>
