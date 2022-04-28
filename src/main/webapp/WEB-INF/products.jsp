@@ -180,20 +180,6 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
-                <div id="newsletter">
-                    <div class="content">
-                        <div class="header">Monthly Newsletter</div>
-                        <div class="text">Sign up to receive updates from our shop, including new tea selections and upcoming events.</div>
-                        <div class="input">
-                            <form class="form">
-                                <input type="text" class="box" placeholder="Enter your email">
-                                <input type="button" class="button" value="SUMBIT">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <jsp:include page="partials/newsletter.jsp" />
         </main>
         <jsp:include page="partials/footer.jsp" />
