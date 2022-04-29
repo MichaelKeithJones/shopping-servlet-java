@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS items_categories;
 DROP TABLE IF EXISTS colors;
 DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS carts;
 
 CREATE TABLE items (
                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -52,3 +53,10 @@ CREATE TABLE products (
                               ON DELETE CASCADE
 );
 
+CREATE TABLE carts (
+                          id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+                          product_id INT UNSIGNED NOT NULL,
+                          quantity INT UNSIGNED NOT NULL,
+                          PRIMARY KEY (id),
+                          FOREIGN KEY (product_id) REFERENCES products(id),
+);
