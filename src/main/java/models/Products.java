@@ -1,6 +1,5 @@
-package doas;
+package models;
 
-import models.Product;
 import java.util.List;
 
 public interface Products {
