@@ -45,7 +45,6 @@ CREATE TABLE products (
                           weight_unit VARCHAR(8) NOT NULL,
                           description TEXT NOT NULL,
                           cost DECIMAL(4, 2) NOT NULL,
-                          quantity INT UNSIGNED NOT NULL,
                           PRIMARY KEY (id),
                           UNIQUE (item_id, color_id),
                           FOREIGN KEY (item_id) REFERENCES items(id),
