@@ -16,7 +16,7 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         List<Product> list = DaoFactory.getProductsDao().all();
-        System.out.println("list.get(0).getDescription() = " + list.get(0).getDescription());
+        System.out.println("list.get(0).getColor() = " + list.get(0).getColor());
 
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }

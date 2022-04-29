@@ -23,6 +23,32 @@ public class ProductsDao implements Products {
         }
     }
 
+    private String getItemName(long id) {
+        String name = null;
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT name FROM items WHERE id = ?");
+            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) name = rs.getString(1);
+        } catch (SQLException e) {
+            System.out.println("Could not get item name.");
+        }
+        return name;
+    }
+
+    private String getColorName(long id) {
+        String name = null;
+        try {
+            PreparedStatement statement = connection.prepareStatement("SELECT name FROM colors WHERE id = ?");
+            statement.setLong(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) name = rs.getString(1);
+        } catch (SQLException e) {
+            System.out.println("Could not get color name.");
+        }
+        return name;
+    }
+
     @Override
     public List<Product> all() {
         List<Product> products = new ArrayList();
@@ -32,8 +58,8 @@ public class ProductsDao implements Products {
             while (rs.next()) {
                 products.add(new Product(
                         rs.getLong("id"),
-                        rs.getLong("item_id"),
-                        rs.getLong("color_id"),
+                        getItemName(rs.getLong("item_id")),
+                        getColorName(rs.getLong("color_id")),
                         rs.getDouble("height"),
                         rs.getDouble("width"),
                         rs.getDouble("length"),

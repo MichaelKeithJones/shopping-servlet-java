@@ -2,8 +2,8 @@ package models;
 
 public class Product {
     private long id;
-    private long itemId;
-    private long colorId;
+    private String name;
+    private String color;
     private double height;
     private double width;
     private double length;
@@ -15,10 +15,10 @@ public class Product {
 
     public Product() {}
 
-    public Product(long id, long itemId, long colorId, double height, double width, double length, String dimensionUnit, double weight, String weightUnit, String description, double cost) {
+    public Product(long id, String name, String color, double height, double width, double length, String dimensionUnit, double weight, String weightUnit, String description, double cost) {
         this.id = id;
-        this.itemId = itemId;
-        this.colorId = colorId;
+        this.name = name;
+        this.color = color;
         this.height = height;
         this.width = width;
         this.length = length;
@@ -31,8 +31,8 @@ public class Product {
 
     public Product(Product product) {
         this.id = product.id;
-        this.itemId = product.itemId;
-        this.colorId = product.colorId;
+        this.name = product.name;
+        this.color = product.color;
         this.height = product.height;
         this.width = product.width;
         this.length = product.length;
@@ -51,20 +51,20 @@ public class Product {
         this.id = id;
     }
 
-    public long getItemId() {
-        return itemId;
+    public String getName() {
+        return name;
     }
 
-    public void setItemId(long itemId) {
-        this.itemId = itemId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public long getColorId() {
-        return colorId;
+    public String getColor() {
+        return color;
     }
 
-    public void setColorId(long colorId) {
-        this.colorId = colorId;
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public double getHeight() {
