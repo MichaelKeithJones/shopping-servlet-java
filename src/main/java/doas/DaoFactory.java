@@ -1,7 +1,6 @@
 package doas;
 
 import models.Products;
-import util.Config;
 
 public class DaoFactory {
     private static Products productsDao;
