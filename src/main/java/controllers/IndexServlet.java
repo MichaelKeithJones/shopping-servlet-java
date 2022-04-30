@@ -16,8 +16,12 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //List<Product> list = DaoFactory.getProductsDao().findByCategoryId(1);
-        Map<Product, Long> list = DaoFactory.getProductsDao().getCart();
-        System.out.println("list.size() = " + list.size());
+        //Map<Product, Long> list = DaoFactory.getProductsDao().getCart();
+
+        //System.out.println("list.size() = " + list.size());
+
+        long id = DaoFactory.getProductsDao().addCart(7, 4);
+        System.out.println("id = " + id);
 
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }

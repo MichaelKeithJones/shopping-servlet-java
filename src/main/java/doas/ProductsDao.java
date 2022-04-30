@@ -159,10 +159,15 @@ public class ProductsDao implements Products {
     @Override
     public long addCart(long productId, long quantity) {
         try {
+            System.out.println("1");
             PreparedStatement statement = connection.prepareStatement("INSERT INTO carts (product_id, quantity) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+            System.out.println("2");
             statement.setLong(1, productId);
+            System.out.println("3");
             statement.setLong(2, quantity);
+            System.out.println("4");
             statement.executeUpdate();
+            System.out.println("5");
             return statement.getGeneratedKeys().getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
@@ -191,7 +196,7 @@ public class ProductsDao implements Products {
             throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
         }
     }
-    
+
     @Override
     public long getProductQuantityFromCart(long productId) {
         try {
