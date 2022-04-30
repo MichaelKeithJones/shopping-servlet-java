@@ -11,5 +11,5 @@ public interface Products {
     List<Product> findByCategoryId(long id);
     Map<Product, Long> getCart();
     long addCart(long productId, long quantity);
-    void removeCart(long productId);
+    boolean removeCart(long productId);
 }

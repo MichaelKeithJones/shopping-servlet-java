@@ -170,15 +170,13 @@ public class ProductsDao implements Products {
     }
 
     @Override
-    public void removeCart(long productId) {
-//        try {
-//            PreparedStatement statement = connection.prepareStatement("INSERT INTO carts (product_id, quantity) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
-//            statement.setLong(1, productId);
-//            statement.setLong(2, quantity);
-//            statement.executeUpdate();
-//            return statement.getGeneratedKeys().getLong(1);
-//        } catch (SQLException e) {
-//            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
-//        }
+    public boolean removeCart(long productId) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM carts WHERE product_id = ?");
+            statement.setLong(1, productId);
+            return statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
+        }
     }
 }
