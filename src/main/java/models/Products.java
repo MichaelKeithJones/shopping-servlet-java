@@ -13,5 +13,5 @@ public interface Products {
     long addCart(long productId, long quantity);
     boolean removeCart(long productId);
     boolean updateCart(long productId, long quantity);
-    long getProductQuantityFromCart(long productId);
+    long checkCart(long productId);
 }
