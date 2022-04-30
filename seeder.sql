@@ -12,6 +12,7 @@ INSERT INTO items (name) VALUES
 ('Awesomeness');
 
 INSERT INTO categories (name) VALUES
+('None'),
 ('Category 1'),
 ('Category 2'),
 ('Category 3'),
@@ -20,7 +21,17 @@ INSERT INTO categories (name) VALUES
 INSERT INTO items_categories (item_id, category_id) VALUES
 (1, 1),
 (1, 2),
-(1, 4);
+(1, 4),
+(2, 2),
+(3, 1),
+(3, 3),
+(4, 4),
+(5, 2),
+(6, 1),
+(6, 3),
+(6, 4);
+
+
 
 INSERT INTO colors (name) VALUES
 ('None'),
