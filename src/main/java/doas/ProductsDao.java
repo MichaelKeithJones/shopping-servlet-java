@@ -179,4 +179,27 @@ public class ProductsDao implements Products {
             throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
         }
     }
+
+    @Override
+    public boolean updateCart(long productId, long quantity) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("UPDATE carts SET quantity = ? WHERE product_id = ?");
+            statement.setLong(1, quantity);
+            statement.setLong(2, productId);
+            return statement.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
+        }
+    }
+    
+    @Override
+    public long getProductQuantityFromCart(long productId) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select quantity from carts where product_id = ?");
+            statement.setLong(1, productId);
+            return statement.executeQuery().getLong("quantity");
+        } catch (SQLException e) {
+            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
+        }
+    }
 }
