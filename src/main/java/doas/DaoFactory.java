@@ -1,13 +1,12 @@
 package doas;
 
-import models.Products;
 import util.Config;
 
 public class DaoFactory {
-    private static Products productsDao;
+    private static ProductsDao productsDao;
     private static Config config = new Config();
 
-    public static Products getProductsDao() {
+    public static ProductsDao getProductsDao() {
         if (productsDao == null) {
             productsDao = new ProductsDao(config);
         }
