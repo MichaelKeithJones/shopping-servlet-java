@@ -100,6 +100,7 @@ public class ProductsDao implements Products {
     }
 
     // Todo: List first of all products list, limit: 3      // select * from products group by item_id limit 3;
+    @Override
     public List<Product> topThreeProducts() {
         try {
             PreparedStatement statement = connection.prepareStatement("select * from products group by item_id limit 3");
@@ -110,6 +111,7 @@ public class ProductsDao implements Products {
     }
 
     // Todo: List first of all products list                // select * from products group by item_id;
+    @Override
     public List<Product> firstProducts() {
         try {
             PreparedStatement statement = connection.prepareStatement("select * from products group by item_id");
@@ -120,6 +122,7 @@ public class ProductsDao implements Products {
     }
 
     // Todo: List all product by item                       // select * from products where item_id = 1;
+    @Override
     public List<Product> findByItemId(long id) {
         try {
             PreparedStatement statement = connection.prepareStatement("select * from products where item_id = ?");
@@ -131,6 +134,7 @@ public class ProductsDao implements Products {
     }
 
     // Todo: List all products by category                  // select * from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = 4)) group by item_id;
+    @Override
     public List<Product> findByCategoryId(long id) {
         try {
             PreparedStatement statement = connection.prepareStatement("select * from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = ?)) group by item_id;");
@@ -142,6 +146,7 @@ public class ProductsDao implements Products {
     }
 
     // Todo: List all products from shopping cart           // select p.*, c.quantity from products as p join carts as c on c.product_id = p.id where p.id in (select c.id from carts where c.product_id = p.id);
+    @Override
     public Map<Product, Long> getCart() {
         try {
             PreparedStatement statement = connection.prepareStatement("select p.*, c.quantity from products as p join carts as c on c.product_id = p.id where p.id in (select c.id from carts where c.product_id = p.id)");
@@ -151,4 +156,29 @@ public class ProductsDao implements Products {
         }
     }
 
+    @Override
+    public long addCart(long productId, long quantity) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO carts (product_id, quantity) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+            statement.setLong(1, productId);
+            statement.setLong(2, quantity);
+            statement.executeUpdate();
+            return statement.getGeneratedKeys().getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
+        }
+    }
+
+    @Override
+    public void removeCart(long productId) {
+//        try {
+//            PreparedStatement statement = connection.prepareStatement("INSERT INTO carts (product_id, quantity) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+//            statement.setLong(1, productId);
+//            statement.setLong(2, quantity);
+//            statement.executeUpdate();
+//            return statement.getGeneratedKeys().getLong(1);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
+//        }
+    }
 }
