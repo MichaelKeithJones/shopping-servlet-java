@@ -100,7 +100,7 @@ public class ProductsDao implements Products {
     }
 
     // Todo: List first of all products list, limit: 3      // select * from products group by item_id limit 3;
-    public List<Product> top3() {
+    public List<Product> topThreeProducts() {
         try {
             PreparedStatement statement = connection.prepareStatement("select * from products group by item_id limit 3");
             return buildProductList(statement.executeQuery());
@@ -110,7 +110,7 @@ public class ProductsDao implements Products {
     }
 
     // Todo: List first of all products list                // select * from products group by item_id;
-    public List<Product> first() {
+    public List<Product> firstProducts() {
         try {
             PreparedStatement statement = connection.prepareStatement("select * from products group by item_id");
             return buildProductList(statement.executeQuery());
