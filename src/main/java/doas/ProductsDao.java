@@ -49,6 +49,8 @@ public class ProductsDao implements Products {
         return name;
     }
 
+    private 
+
     @Override
     public List<Product> all() {
         List<Product> products = new ArrayList();
@@ -75,4 +77,10 @@ public class ProductsDao implements Products {
         }
         return products;
     }
+
+    // Todo: List first of all products list, limit: 3      // select * from products group by item_id limit 3;
+    // Todo: List first of all products list                // select * from products group by item_id;
+    // Todo: List all product by item                       // select * from products where item_id = 1;
+    // Todo: List all products by category                  // select *from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = 4)) group by item_id;
+    // Todo: List all products from shopping cart           // select p.*, c.quantity from products as p join carts as c on c.product_id = p.id where p.id in (select c.id from carts where c.product_id = p.id);
 }
