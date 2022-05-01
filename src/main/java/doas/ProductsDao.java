@@ -69,27 +69,6 @@ public class ProductsDao {
         return products;
     }
 
-    private Map<Product, Long> buildCartList (ResultSet rs) throws SQLException{
-        Map<Product, Long> cart = new HashMap<>();
-        while (rs.next()) {
-            cart.put(new Product(
-                    rs.getLong("id"),
-                    getItemName(rs.getLong("item_id")),
-                    getColorName(rs.getLong("color_id")),
-                    rs.getDouble("height"),
-                    rs.getDouble("width"),
-                    rs.getDouble("length"),
-                    rs.getString("dimension_unit"),
-                    rs.getDouble("weight"),
-                    rs.getString("weight_unit"),
-                    rs.getString("description"),
-                    rs.getDouble("cost")
-            ), rs.getLong("quantity") );
-        }
-        return cart;
-    }
-
-
     public List<Product> all() {
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM products");
@@ -136,63 +115,6 @@ public class ProductsDao {
             PreparedStatement statement = connection.prepareStatement("select * from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = ?)) group by item_id;");
             statement.setLong(1, id);
             return buildProductList(statement.executeQuery());
-        } catch (SQLException e) {
-            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
-        }
-    }
-
-    // Todo: List all products from shopping cart           // select p.*, c.quantity from products as p join carts as c on c.product_id = p.id where p.id in (select c.id from carts where c.product_id = p.id);
-    public Map<Product, Long> getCart() {
-        try {
-            PreparedStatement statement = connection.prepareStatement("select p.*, c.quantity from products as p join carts as c on c.product_id = p.id where p.id in (select c.id from carts where c.product_id = p.id)");
-            return buildCartList(statement.executeQuery());
-        } catch (SQLException e) {
-            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
-        }
-    }
-
-    public long addCart(long productId, long quantity) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO carts (product_id, quantity) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
-            statement.setLong(1, productId);
-            statement.setLong(2, quantity);
-            statement.executeUpdate();
-            ResultSet resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) return resultSet.getLong(1);
-            return 0L;
-        } catch (SQLException e) {
-            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
-        }
-    }
-
-    public boolean removeCart(long productId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM carts WHERE product_id = ?");
-            statement.setLong(1, productId);
-            return statement.execute();
-        } catch (SQLException e) {
-            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
-        }
-    }
-
-    public boolean updateCart(long productId, long quantity) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE carts SET quantity = ? WHERE product_id = ?");
-            statement.setLong(1, quantity);
-            statement.setLong(2, productId);
-            return statement.execute();
-        } catch (SQLException e) {
-            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
-        }
-    }
-
-    public long checkCart(long productId) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("select quantity from carts where product_id = ?");
-            statement.setLong(1, productId);
-            ResultSet rs = statement.executeQuery();
-            if (rs.next()) return rs.getLong("quantity");
-            return 0L;
         } catch (SQLException e) {
             throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
         }

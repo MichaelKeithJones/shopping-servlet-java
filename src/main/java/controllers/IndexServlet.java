@@ -12,7 +12,7 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        long id = DaoFactory.getProductsDao().checkCart(3);
+        long id = DaoFactory.getCartDao().checkCart(3);
         System.out.println("id = " + id);
 
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);

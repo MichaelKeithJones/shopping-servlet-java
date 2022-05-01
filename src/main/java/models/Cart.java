@@ -1,42 +1,53 @@
 package models;
 
 public class Cart {
-    private long id;
-    private long product_id;
+    private String name;
+    private double cost;
+    private String color;
     private long quantity;
 
     public Cart() {}
 
-    public Cart(long id, long product_id, long quantity) {
-        this.id = id;
-        this.product_id = product_id;
+    public Cart(String name, double cost, String color, long quantity) {
+        this.name = name;
+        this.cost = cost;
+        this.color = color;
         this.quantity = quantity;
     }
 
     public Cart(Cart cart) {
-        this.id = cart.id;
-        this.product_id = cart.product_id;
+        this.name = cart.name;
+        this.cost = cart.cost;
+        this.color = cart.color;
         this.quantity = cart.quantity;
     }
 
-    public long getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public double getCost() {
+        return cost;
     }
 
-    public long getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(long product_id) {
-        this.product_id = product_id;
+    public String getColor() {
+        return color;
     }
 
     public long getQuantity() {
         return quantity;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public void setQuantity(long quantity) {
