@@ -109,11 +109,21 @@ public class ProductsDao {
         }
     }
 
-    // Todo: List all products by category                  // select * from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = 4)) group by item_id;
+    // Todo: List all products by category id                 // select * from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = 4)) group by item_id;
     public List<Product> findByCategoryId(long id) {
         try {
-            PreparedStatement statement = connection.prepareStatement("select * from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = ?)) group by item_id;");
+            PreparedStatement statement = connection.prepareStatement("select * from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = ?)) group by item_id");
             statement.setLong(1, id);
+            return buildProductList(statement.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
+        }
+    }
+
+    public List<Product> findByCategoryName(String name) {
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from products where item_id in (select item_id from items_categories where category_id in (select categories.id from categories where categories.name = ?)) group by item_id");
+            statement.setString(1, name);
             return buildProductList(statement.executeQuery());
         } catch (SQLException e) {
             throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);

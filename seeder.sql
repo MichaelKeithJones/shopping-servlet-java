@@ -12,11 +12,11 @@ INSERT INTO items (name) VALUES
 ('Awesomeness');
 
 INSERT INTO categories (name) VALUES
-('None'),
 ('Category 1'),
 ('Category 2'),
 ('Category 3'),
-('Category 4');
+('Category 4'),
+('None');
 
 INSERT INTO items_categories (item_id, category_id) VALUES
 (1, 1),

@@ -1,5 +1,7 @@
 package controllers;
 
+import doas.*;
+
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -10,6 +12,7 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("products", DaoFactory.getProductsDao().topThreeProducts());
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
 
