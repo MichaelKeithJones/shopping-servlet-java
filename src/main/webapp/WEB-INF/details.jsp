@@ -202,17 +202,16 @@
                     <div class="image"></div>
                     <div class="details">
                         <div class="main">
-                            <div class="header">Plainness</div>
-                            <div class="sub-header">$ 40.00 USD</div>
-                            <div class="text">Even the all-powerful Pointing has no control
-                                about the blind texts it is an almost unorthographic life.</div>
+                            <div class="header"></div>
+                            <div class="sub-header"></div>
+                            <div class="text"></div>
                         </div>
                         <div class="divider-dark"></div>
                         <div class="info">
                             <div class="label">Dimensions</div>
-                            <div class="value">4.5 in x 15.59 in x 8.6 in</div>
+                            <div class="value dimension"></div>
                             <div class="label">Weight</div>
-                            <div class="value">2.8 oz</div>
+                            <div class="value weight"></div>
                         </div>
                         <div class="divider-light"></div>
                         <div class="selectors">
@@ -220,9 +219,6 @@
                                 <div class="colour-label">Colour</div>
                                 <select name="colour" id="colour" class="colour-drop">
                                     <option value="none">Select Colour</option>
-                                    <option value="White">White</option>
-                                    <option value="Grey">Grey</option>
-                                    <option value="Black">Black</option>
                                 </select>
                             </div>
                             <div class="quantity">Quantity</div>
@@ -244,29 +240,26 @@
             <%@ include file="/js/modal.js"%>
         </script>
         <script>
-            let products = '${products}';
-            console.log(products);
-            console.log(JSON.parse(products));
+            let products = JSON.parse('${products}');
 
-            <%--let size = '${products.size()}';--%>
+            let updateColorSelector = () => { for(let i = 0; i < products.length; i++) document.querySelector('#colour').insertAdjacentHTML('beforeend', `<option value="` + products[i].color + `">` + products[i].color + `</option>`); }
+            let updateProduct = (index) => {
+                console.log('updating');
+                let currentProduct = products[index];
+                document.querySelector('#item .header').innerHTML = currentProduct.name;
+                document.querySelector('#item .sub-header').innerHTML = '$ ' + (currentProduct.cost).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USD';
+                document.querySelector('#item .text').innerHTML = currentProduct.description;
+                document.querySelector('#item .dimension').innerHTML = currentProduct.height + ' ' + currentProduct.dimensionUnit + ' x '
+                                                                + currentProduct.width + ' ' + currentProduct.dimensionUnit + ' x '
+                                                                + currentProduct.length + ' ' + currentProduct.dimensionUnit;
+                document.querySelector('#item .weight').innerHTML = currentProduct.weight + ' ' + currentProduct.weightUnit;
+            }
 
             let colorSelector = document.querySelector('#colour');
-            colorSelector.addEventListener('change', event => {
-                console.log(event.target.value);
-            });
+            colorSelector.addEventListener('change', event => { for(let i = 0; i < products.length; i++) if (event.target.value === products[i].color) updateProduct(i); });
 
-            const data = { product: 'Clearness' };
-            fetch('/details', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-                .then(response => response.json())
-                .then(data => console.log('Success:', data))
-                .catch(error => console.error('Error:', error));
-
+            updateColorSelector();
+            updateProduct(0);
         </script>
     </body>
 </html>
