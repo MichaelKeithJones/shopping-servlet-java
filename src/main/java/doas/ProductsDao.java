@@ -129,4 +129,14 @@ public class ProductsDao {
             throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
         }
     }
+
+    public List<Product> getByItemName(String name){
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from products p where p.item_id in (select i.id from items i where name = ?)");
+            statement.setString(1, name);
+            return buildProductList(statement.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
+        }
+    }
 }

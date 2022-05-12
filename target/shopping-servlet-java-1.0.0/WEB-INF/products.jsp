@@ -60,7 +60,7 @@
             #selector .link:hover {
                 color: rgba(0, 0, 0, 0.60);
             }
-            
+
             <%@ include file="/css/cards.css"%>
             <%@ include file="/css/newsletter.css"%>
             <%@ include file="/css/footer.css"%>
@@ -87,7 +87,7 @@
                 <div id="cards">
                     <c:forEach var="product" items="${products}">
                         <div class="card">
-                            <a class="anchor">
+                            <a class="anchor" href="/details?product=${product.name}">
                                 <div class="info">
                                     <div class="header">${product.name}</div>
                                     <div class="text"><fmt:formatNumber value = "${product.cost}" type = "currency"/> USD</div>
