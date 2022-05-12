@@ -220,9 +220,9 @@
                                 <div class="colour-label">Colour</div>
                                 <select name="colour" id="colour" class="colour-drop">
                                     <option value="none">Select Colour</option>
-                                    <c:forEach var="product" items="${products}">
-                                        <option value="${product.color}">${product.color}</option>
-                                    </c:forEach>
+                                    <option value="White">White</option>
+                                    <option value="Grey">Grey</option>
+                                    <option value="Black">Black</option>
                                 </select>
                             </div>
                             <div class="quantity">Quantity</div>
@@ -242,14 +242,24 @@
 
         <script>
             <%@ include file="/js/modal.js"%>
+        </script>
+        <script>
+            let products = '${products}';
+            console.log(products);
+            console.log(JSON.parse(products));
 
-            //--| Products: Initial Call
+            <%--let size = '${products.size()}';--%>
+
+            let colorSelector = document.querySelector('#colour');
+            colorSelector.addEventListener('change', event => {
+                console.log(event.target.value);
+            });
 
             const data = { product: 'Clearness' };
             fetch('/details', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
@@ -257,10 +267,6 @@
                 .then(data => console.log('Success:', data))
                 .catch(error => console.error('Error:', error));
 
-
-            // $.post('/index').done((data) => {
-            //     console.log(data);
-            // });
         </script>
     </body>
 </html>
