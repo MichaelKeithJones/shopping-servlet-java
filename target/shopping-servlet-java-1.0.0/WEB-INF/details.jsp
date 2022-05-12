@@ -1,4 +1,5 @@
-<%--
+<%@ page import="models.Product" %>
+<%@ page import="java.util.List" %><%--
   Author: Michael Jones
   Date: 4/27/2022
 --%>
@@ -220,7 +221,7 @@
                                 <select name="colour" id="colour" class="colour-drop">
                                     <option value="none">Select Colour</option>
                                     <c:forEach var="product" items="${products}">
-                                    <option value="${product.color}">${product.color}</option>
+                                        <option value="${product.color}">${product.color}</option>
                                     </c:forEach>
                                 </select>
                             </div>
@@ -241,6 +242,25 @@
 
         <script>
             <%@ include file="/js/modal.js"%>
+
+            //--| Products: Initial Call
+
+            const data = { product: 'Clearness' };
+            fetch('/details', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => console.log('Success:', data))
+                .catch(error => console.error('Error:', error));
+
+
+            // $.post('/index').done((data) => {
+            //     console.log(data);
+            // });
         </script>
     </body>
 </html>
