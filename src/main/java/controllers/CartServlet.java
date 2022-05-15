@@ -9,7 +9,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-import org.json.HTTP;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
@@ -20,7 +19,12 @@ public class CartServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> products = DaoFactory.getProductsDao().getShoppingCart();
-        String json = new Gson().toJson(products);
+        String productsJson = new Gson().toJson(products);
+
+        List<Long> quantities = DaoFactory.getProductsDao().getCartQuantities();
+        String quantitiesJson = new Gson().toJson(quantities);
+
+        String json = "[" + productsJson + "," + quantitiesJson + "]";
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");

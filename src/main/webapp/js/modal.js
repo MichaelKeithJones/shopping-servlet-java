@@ -10,29 +10,29 @@ let displayShoppingCart = () => {
     fetch('cart')
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            if (data.length === 0) {
+            let productList = data[0];
+            let quantityList = data[1];
+            if (productList.length === 0) {
                 modalBody.innerHTML = `
-                                <div class="inner-empty">
-                                    <div class="text">No items found.</div>
-                                </div>
-                            `;
+                    <div class="inner-empty">
+                        <div class="text">No items found.</div>
+                    </div>
+                `;
             } else {
                 let total = 0;
-                data.map(product => total += product.cost);
-
+                productList.map((product, index) => total += product.cost * quantityList[index]);
                 let outputHTML = '<div class="inner-full"><div class="upper">';
-                data.forEach(product => {
+                productList.forEach((product, index) => {
                     outputHTML += `
                         <div class="item">
                             <img class="product-img" src="" alt="">
                             <div class="details">
                                 <div class="product-name">\${product.name}</div>
-                                <div class="product-cost">\${product.cost}</div>
+                                <div class="product-cost">$ \${product.cost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USD</div>
                                 <div class="product-color">Colour: <span style="color: black">\${product.color}</span></div>
                                 <a data-id="\${product.id}" class="product-remove">Remove</a>
                             </div>
-                            <input data-id="\${product.id}" class="quantity" type="text" value="1" />
+                            <input data-id="\${product.id}" class="quantity" type="text" value="\${quantityList[index]}" />
                         </div>
                     `;
                 });
@@ -41,7 +41,7 @@ let displayShoppingCart = () => {
                         <div class="lower">
                             <div class="subtotal">
                                 <div>Subtotal</div>
-                                <div class="amount">\${total}</div>
+                                <div class="amount">$ \${total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USD</div>
                             </div>
                             <div>
                                 <a class="checkout">Continue to Checkout</a>

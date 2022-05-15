@@ -149,15 +149,26 @@ public class ProductsDao {
         }
     }
 
+    public List<Long> getCartQuantities() {
+        List<Long> list = new ArrayList<>();
+        try {
+            PreparedStatement statement = connection.prepareStatement("select quantity from carts");
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()) {
+                list.add(resultSet.getLong("quantity"));
+            } return list;
+        } catch (SQLException e) {
+            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
+        }
+    }
+
     public long getCartQuantity(long id) {
         try {
             PreparedStatement statement = connection.prepareStatement("select c.quantity from carts c where product_id = ?");
             statement.setLong(1, id);
 
             ResultSet resultSet = statement.executeQuery();
-
-//            if (resultSet.next()) { return resultSet.getLong(1); }
-//            else return 0L;
 
             while(resultSet.next()) { return resultSet.getLong("quantity"); }
             return 0L;
