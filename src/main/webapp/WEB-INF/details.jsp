@@ -203,6 +203,7 @@
                     <div class="details">
                         <div class="main">
                             <div class="header"></div>
+                            <input id="product-id" type="hidden">
                             <div class="sub-header"></div>
                             <div class="text"></div>
                         </div>
@@ -223,8 +224,8 @@
                             </div>
                             <div class="quantity">Quantity</div>
                             <div class="selection">
-                                <input type="number" class="drop" min="1" value="1"/>
-                                <input type="button" class="button" value="Add to Cart"/>
+                                <input id="product-quantity" type="number" class="drop" min="1" value="1"/>
+                                <input id="add-to-cart" type="button" class="button" value="Add to Cart"/>
                             </div>
                         </div>
                     </div>
@@ -238,28 +239,7 @@
 
         <script>
             <%@ include file="/js/modal.js"%>
-        </script>
-        <script>
-            let products = JSON.parse('${products}');
-
-            let updateColorSelector = () => { for(let i = 0; i < products.length; i++) document.querySelector('#colour').insertAdjacentHTML('beforeend', `<option value="` + products[i].color + `">` + products[i].color + `</option>`); }
-            let updateProduct = (index) => {
-                console.log('updating');
-                let currentProduct = products[index];
-                document.querySelector('#item .header').innerHTML = currentProduct.name;
-                document.querySelector('#item .sub-header').innerHTML = '$ ' + (currentProduct.cost).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USD';
-                document.querySelector('#item .text').innerHTML = currentProduct.description;
-                document.querySelector('#item .dimension').innerHTML = currentProduct.height + ' ' + currentProduct.dimensionUnit + ' x '
-                                                                + currentProduct.width + ' ' + currentProduct.dimensionUnit + ' x '
-                                                                + currentProduct.length + ' ' + currentProduct.dimensionUnit;
-                document.querySelector('#item .weight').innerHTML = currentProduct.weight + ' ' + currentProduct.weightUnit;
-            }
-
-            let colorSelector = document.querySelector('#colour');
-            colorSelector.addEventListener('change', event => { for(let i = 0; i < products.length; i++) if (event.target.value === products[i].color) updateProduct(i); });
-
-            updateColorSelector();
-            updateProduct(0);
+            <%@ include file="/js/details.js"%>
         </script>
     </body>
 </html>

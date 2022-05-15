@@ -74,4 +74,4 @@ INSERT INTO products (item_id, color_id, height, width, length, dimension_unit, 
 
 
 INSERT INTO carts (product_id, quantity) VALUES
-    (1, 2);
+    (1, 2),     (5, 1),    (8, 3);

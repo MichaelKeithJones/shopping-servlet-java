@@ -17,4 +17,6 @@ public class DetailsServlet extends HttpServlet {
         request.setAttribute("products", productsJson);
         request.getRequestDispatcher("/WEB-INF/details.jsp").forward(request, response);
     }
+
+
 }

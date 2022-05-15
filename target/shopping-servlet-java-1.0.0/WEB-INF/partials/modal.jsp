@@ -10,10 +10,6 @@
             <div class="close"><img src="https://assets.website-files.com/5c6eefaaeddf9248ac13bc72/5c6ef116eddf9216ae13c295_close-icon.svg" alt="" class="icon"></div>
         </div>
         <div class="body">
-            <div class="inner">
-                <div class="text">No items found.</div>
-            </div>
         </div>
-        <div class="footer"></div>
     </div>
 </div>
