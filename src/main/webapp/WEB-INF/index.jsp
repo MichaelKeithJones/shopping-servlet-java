@@ -102,7 +102,6 @@
 
     <script>
         <%@ include file="/js/modal.js"%>
-        // Todo: Combine Modal js and jsp
         // Todo: Make navbar responsive and collapsable : 975px
         // Todo: Make main-info text center at 745px
         // Todo: Collapse footer into straight column at 745px
