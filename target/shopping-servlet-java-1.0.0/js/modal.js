@@ -1,4 +1,6 @@
 //--| Global Variables
+let cartTotalButton = document.querySelector('#cart-button');
+cartTotalButton.innerHTML =` Cart ${0}`;
 let overlay = document.querySelector("#cart-modal");
 let content = document.querySelector("#cart-modal .content");
 let modalCloseButton = document.querySelector("#cart-modal .close");
@@ -10,7 +12,7 @@ let displayShoppingCart = () => {
     fetch('cart')
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            cartTotalButton.innerHTML =`Cart <span style="padding-left: 5px">\${data[0].length}</span>`;
             let productList = data[0];
             let quantityList = data[1];
             if (productList.length === 0) {
@@ -90,6 +92,7 @@ let displayShoppingCart = () => {
             }
         });
 }
+displayShoppingCart();
 
 //--| Modal Slide-in Function
 let slideIn = () => {
@@ -97,7 +100,6 @@ let slideIn = () => {
     let wait = () => {
         content.style.right = "0";
         content.style.opacity = "1";
-        displayShoppingCart();
     };
     const myTimeout = setTimeout(wait, 100);
 }

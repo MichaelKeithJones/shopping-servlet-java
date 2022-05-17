@@ -35,7 +35,7 @@ if (document.querySelector("#add-to-cart")) {
                 id: document.querySelector("#product-id").value,
                 quantity: document.querySelector("#product-quantity").value
             })
-        });
+        }).then(displayShoppingCart);
         slideIn();
     });
 }
