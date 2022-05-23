@@ -23,14 +23,14 @@
 }
 #intro-header .title{
     color: white;
-    font-size: clamp(36px, 10vw, 56px);
-    line-height: clamp(48px, 10vw, 70px);
+    font-size: clamp(36px, 9vw, 56px);
+    line-height: clamp(48px, 9vw, 70px);
     text-align: center;
 }
 #intro-header .paragraph {
     color: gray;
-    font-size: clamp(16px, 10vw, 20px);
-    line-height: clamp(28px, 10vw, 34px);
+    font-size: clamp(16px, 2vw, 20px);
+    line-height: clamp(28px, 2vw, 34px);
     font-weight: 400;
     text-align: center;
 }

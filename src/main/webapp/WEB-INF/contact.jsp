@@ -46,6 +46,11 @@
                 flex-direction: column;
                 align-items: stretch;
             }
+            @media only screen and (max-width: 745px) {
+                #contact form {
+                    width: 90%;
+                }
+            }
             #contact label {
                 display: block;
                 margin-bottom: 10px;
@@ -239,6 +244,13 @@
                 font-weight: 400;
                 text-decoration: none;
             }
+            @media only screen and (max-width: 975px) {
+                #numbers .sections{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
 
             <%@ include file="/css/newsletter.css"%>
             <%@ include file="/css/footer.css"%>
@@ -247,67 +259,70 @@
     </head>
     <body>
 
-        <jsp:include page="partials/navbar.jsp" />
-        <main>
-            <div class="container">
-                <div id="contact">
-                    <div class="heading">
-                        <div class="header">Get in touch</div>
-                        <div class="sub-header">Hey there, fill out this form</div>
+        <div class="page">
+            <jsp:include page="partials/navbar.jsp" />
+            <main>
+                <div class="container">
+                    <div id="contact">
+                        <div class="heading">
+                            <div class="header">Get in touch</div>
+                            <div class="sub-header">Hey there, fill out this form</div>
+                        </div>
+                        <div class="body">
+                            <form>
+                                <div class="input-fields">
+                                    <div class="input-name">
+                                        <label for="name">Name</label>
+                                        <input class="text-field" type="text" name="name" id="name" placeholder="Enter your name">
+                                    </div>
+                                    <div class="input-email">
+                                        <label for="email">Email Address</label>
+                                        <input class="text-field" type="email" name="email" id="email" placeholder="Enter your email">
+                                    </div>
+                                </div>
+                                <label for="message">Message</label>
+                                <textarea class="text-style" name="message" id="message" placeholder="Enter your message"></textarea>
+                                <input type="button" class="button" value="Submit">
+                            </form>
+                            <div class="spacer"></div>
+                        </div>
                     </div>
-                    <div class="body">
-                        <form>
-                            <div class="input-fields">
-                                <div class="input-name">
-                                    <label for="name">Name</label>
-                                    <input class="text-field" type="text" name="name" id="name" placeholder="Enter your name">
-                                </div>
-                                <div class="input-email">
-                                    <label for="email">Email Address</label>
-                                    <input class="text-field" type="email" name="email" id="email" placeholder="Enter your email">
-                                </div>
+                </div>
+                <div class="container">
+                    <div id="numbers">
+                        <div class="heading">Main Contacts</div>
+                        <div class="sections">
+                            <div class="support">
+                                <div class="header">Support</div>
+                                <div class="sub-header">+61 8372 4662</div>
+                                <div class="text">Mon - Fri, 9am - 5pm</div>
                             </div>
-                            <label for="message">Message</label>
-                            <textarea class="text-style" name="message" id="message" placeholder="Enter your message"></textarea>
-                            <input type="button" class="button" value="Submit">
-                        </form>
-                        <div class="spacer"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div id="numbers">
-                    <div class="heading">Main Contacts</div>
-                    <div class="sections">
-                        <div class="support">
-                            <div class="header">Support</div>
-                            <div class="sub-header">+61 8372 4662</div>
-                            <div class="text">Mon - Fri, 9am - 5pm</div>
-                        </div>
-                        <div class="marketing">
-                            <div class="header">Marketing</div>
-                            <div class="sub-header">+61 8372 4662</div>
-                            <div class="text">Mon - Fri, 9am - 5pm</div>
-                        </div>
-                        <div class="hotline">
-                            <div class="header">Office Hotline</div>
-                            <div class="sub-header">+61 8372 4662</div>
-                            <div class="text">Mon - Fri, 9am - 5pm</div>
-                        </div>
-                        <div class="email">
-                            <div class="header">Email</div>
-                            <a class="link">support@store.com</a>
+                            <div class="marketing">
+                                <div class="header">Marketing</div>
+                                <div class="sub-header">+61 8372 4662</div>
+                                <div class="text">Mon - Fri, 9am - 5pm</div>
+                            </div>
+                            <div class="hotline">
+                                <div class="header">Office Hotline</div>
+                                <div class="sub-header">+61 8372 4662</div>
+                                <div class="text">Mon - Fri, 9am - 5pm</div>
+                            </div>
+                            <div class="email">
+                                <div class="header">Email</div>
+                                <a class="link">support@store.com</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <jsp:include page="partials/newsletter.jsp" />
-        </main>
-        <jsp:include page="partials/footer.jsp" />
+                <jsp:include page="partials/newsletter.jsp" />
+            </main>
+            <jsp:include page="partials/footer.jsp" />
 
-        <jsp:include page="partials/modal.jsp" />
+            <jsp:include page="partials/modal.jsp" />
+        </div>
 
         <script>
+            <%@ include file="/js/navbar.js"%>
             <%@ include file="/js/modal.js"%>
         </script>
     </body>

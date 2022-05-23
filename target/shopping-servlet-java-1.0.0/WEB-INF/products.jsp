@@ -69,41 +69,44 @@
     </head>
     <body>
 
-        <jsp:include page="partials/navbar.jsp" />
-        <main>
-            <div class="container">
-                <div id="selector">
-                    <div class="header">Our Products</div>
-                    <div class="tabs">
-                        <a href="/products" class="link">All Products</a>
-                        <a href="/products?category=Category 1" class="link">Category 1</a>
-                        <a href="/products?category=Category 2" class="link">Category 2</a>
-                        <a href="/products?category=Category 3" class="link">Category 3</a>
-                        <a href="/products?category=Category 4" class="link">Category 4</a>
+        <div class="page">
+            <jsp:include page="partials/navbar.jsp" />
+            <main>
+                <div class="container">
+                    <div id="selector">
+                        <div class="header">Our Products</div>
+                        <div class="tabs">
+                            <a href="/products" class="link">All Products</a>
+                            <a href="/products?category=Category 1" class="link">Category 1</a>
+                            <a href="/products?category=Category 2" class="link">Category 2</a>
+                            <a href="/products?category=Category 3" class="link">Category 3</a>
+                            <a href="/products?category=Category 4" class="link">Category 4</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div id="cards">
-                    <c:forEach var="product" items="${products}">
-                        <div class="card">
-                            <a class="anchor" href="/details?product=${product.name}">
-                                <div class="info">
-                                    <div class="header">${product.name}</div>
-                                    <div class="text"><fmt:formatNumber value = "${product.cost}" type = "currency"/> USD</div>
-                                </div>
-                            </a>
-                        </div>
-                    </c:forEach>
+                <div class="container">
+                    <div id="cards">
+                        <c:forEach var="product" items="${products}">
+                            <div class="card">
+                                <a class="anchor" href="/details?product=${product.name}">
+                                    <div class="info">
+                                        <div class="header">${product.name}</div>
+                                        <div class="text"><fmt:formatNumber value = "${product.cost}" type = "currency"/> USD</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </c:forEach>
+                    </div>
                 </div>
-            </div>
-            <jsp:include page="partials/newsletter.jsp" />
-        </main>
-        <jsp:include page="partials/footer.jsp" />
+                <jsp:include page="partials/newsletter.jsp" />
+            </main>
+            <jsp:include page="partials/footer.jsp" />
 
-        <jsp:include page="partials/modal.jsp" />
+            <jsp:include page="partials/modal.jsp" />
+        </div>
 
         <script>
+            <%@ include file="/js/navbar.js"%>
             <%@ include file="/js/modal.js"%>
         </script>
     </body>

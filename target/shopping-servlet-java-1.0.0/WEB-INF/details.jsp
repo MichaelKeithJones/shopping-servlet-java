@@ -156,7 +156,6 @@
                 background-color: #fff;
                 border: 1px solid #e4e4e4;
                 border-radius: 0;
-                -webkit-transition: border-color 400ms ease;
                 transition: border-color 400ms ease;
                 font-size: 14px;
                 line-height: 26px;
@@ -188,6 +187,37 @@
                 appearance: none;
             }
 
+            @media only screen and (max-width: 945px) {
+                #item {
+                    flex-direction: column;
+                }
+                #item .image {
+                    width: 100%;
+                }
+                #item .details {
+                    width: 100%;
+                    max-width: 470px;
+                    margin-bottom: 80px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    text-align: center;
+                }
+                #item .label {
+                    text-align: left;
+                }
+                #item .selection {
+                    flex-direction: column;
+                }
+                #item .drop {
+                    width: auto;
+                    margin-right: 0;
+                    margin-bottom: 10px;
+                }
+                #item .button {
+                    margin-right: 0;
+                }
+            }
+
             <%@ include file="/css/newsletter.css"%>
             <%@ include file="/css/footer.css"%>
             <%@ include file="/css/modal.css"%>
@@ -195,49 +225,52 @@
     </head>
     <body>
 
-        <jsp:include page="partials/navbar.jsp" />
-        <main>
-            <div class="container">
-                <div id="item">
-                    <div class="image"></div>
-                    <div class="details">
-                        <div class="main">
-                            <div class="header"></div>
-                            <input id="product-id" type="hidden">
-                            <div class="sub-header"></div>
-                            <div class="text"></div>
-                        </div>
-                        <div class="divider-dark"></div>
-                        <div class="info">
-                            <div class="label">Dimensions</div>
-                            <div class="value dimension"></div>
-                            <div class="label">Weight</div>
-                            <div class="value weight"></div>
-                        </div>
-                        <div class="divider-light"></div>
-                        <div class="selectors">
-                            <div class="colour">
-                                <div class="colour-label">Colour</div>
-                                <select name="colour" id="colour" class="colour-drop">
-                                    <option value="none">Select Colour</option>
-                                </select>
+        <div class="page">
+            <jsp:include page="partials/navbar.jsp" />
+            <main>
+                <div class="container">
+                    <div id="item">
+                        <div class="image"></div>
+                        <div class="details">
+                            <div class="main">
+                                <div class="header"></div>
+                                <input id="product-id" type="hidden">
+                                <div class="sub-header"></div>
+                                <div class="text"></div>
                             </div>
-                            <div class="quantity">Quantity</div>
-                            <div class="selection">
-                                <input id="product-quantity" type="number" class="drop" min="1" value="1"/>
-                                <input id="add-to-cart" type="button" class="button" value="Add to Cart"/>
+                            <div class="divider-dark"></div>
+                            <div class="info">
+                                <div class="label">Dimensions</div>
+                                <div class="value dimension"></div>
+                                <div class="label">Weight</div>
+                                <div class="value weight"></div>
+                            </div>
+                            <div class="divider-light"></div>
+                            <div class="selectors">
+                                <div class="colour">
+                                    <div class="colour-label">Colour</div>
+                                    <select name="colour" id="colour" class="colour-drop">
+                                        <option value="none">Select Colour</option>
+                                    </select>
+                                </div>
+                                <div class="quantity">Quantity</div>
+                                <div class="selection">
+                                    <input id="product-quantity" type="number" class="drop" min="1" value="1"/>
+                                    <input id="add-to-cart" type="button" class="button" value="Add to Cart"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <jsp:include page="partials/newsletter.jsp" />
-        </main>
-        <jsp:include page="partials/footer.jsp" />
+                <jsp:include page="partials/newsletter.jsp" />
+            </main>
+            <jsp:include page="partials/footer.jsp" />
 
-        <jsp:include page="partials/modal.jsp" />
+            <jsp:include page="partials/modal.jsp" />
+        </div>
 
         <script>
+            <%@ include file="/js/navbar.js"%>
             <%@ include file="/js/modal.js"%>
             <%@ include file="/js/details.js"%>
         </script>

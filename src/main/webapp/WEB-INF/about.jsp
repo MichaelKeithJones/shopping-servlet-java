@@ -93,8 +93,8 @@
             #quote .body {
                 color: gray;
                 margin-bottom: 10px;
-                font-size: 20px;
-                line-height: 34px;
+                font-size: clamp(16px, 2vw, 20px);
+                line-height: clamp(28px, 3vw, 34px);
                 font-weight: 400;
             }
             #quote .signature {
@@ -113,61 +113,64 @@
     </head>
     <body>
 
-        <jsp:include page="partials/navbar.jsp" />
-        <main>
-            <div class="container">
-                <div id="intro-header">
-                    <div class="content">
-                        <div class="text">
-                            <div class="title">About Us</div>
-                            <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="page">
+            <jsp:include page="partials/navbar.jsp" />
+            <main>
+                <div class="container">
+                    <div id="intro-header">
+                        <div class="content">
+                            <div class="text">
+                                <div class="title">About Us</div>
+                                <div class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div id="main-info">
-                    <div class="content">
-                        <div class="heading">
-                            <h1 class="header">This is our life story</h1>
-                            <div class="sub-header">Beginning of tea parties</div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="paragraph">
-                            <div class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</div>
-                            <div class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</div>
+                <div class="container">
+                    <div id="main-info">
+                        <div class="content">
+                            <div class="heading">
+                                <h1 class="header">This is our life story</h1>
+                                <div class="sub-header">Beginning of tea parties</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="paragraph">
+                                <div class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</div>
+                                <div class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div id="articles">
-                    <div class="content">
-                        <div class="article one"></div>
-                        <div class="article two"></div>
-                        <div class="article three"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div id="quote">
-                    <div class="content">
-                        <div class="header">Our Philosophy</div>
-                        <div class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis
-                            viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+                <div class="container">
+                    <div id="articles">
+                        <div class="content">
+                            <div class="article one"></div>
+                            <div class="article two"></div>
+                            <div class="article three"></div>
                         </div>
-                        <div class="signature">― Dr. Seuss, Oh, The Places You'll Go!</div>
                     </div>
                 </div>
-            </div>
-            <jsp:include page="partials/newsletter.jsp" />
-        </main>
-        <jsp:include page="partials/footer.jsp" />
+                <div class="container">
+                    <div id="quote">
+                        <div class="content">
+                            <div class="header">Our Philosophy</div>
+                            <div class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis
+                                viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.
+                            </div>
+                            <div class="signature">― Dr. Seuss, Oh, The Places You'll Go!</div>
+                        </div>
+                    </div>
+                </div>
+                <jsp:include page="partials/newsletter.jsp" />
+            </main>
+            <jsp:include page="partials/footer.jsp" />
 
-        <jsp:include page="partials/modal.jsp" />
+            <jsp:include page="partials/modal.jsp" />
+        </div>
 
         <script>
+            <%@ include file="/js/navbar.js"%>
             <%@ include file="/js/modal.js"%>
         </script>
     </body>

@@ -80,8 +80,6 @@ nav .content > .buttons > .cart:hover { background-color: rgba(0, 0, 0, 0.75); }
 nav .content > .buttons > .icon{ display: none; }
 
 @media only screen and (max-width: 975px) {
-    nav { height: 100%; }
-
     nav .content {
         /*--| Main |--------------------------------*/
         grid-template-columns: 125px 1fr;
@@ -139,5 +137,6 @@ nav .overlay {
     display: none;
 }
 
+.nav-full {height: 100% !important;}
 .links-down {grid-template-rows: 1fr 150px !important;}
 .overlay-down {display: block !important;}

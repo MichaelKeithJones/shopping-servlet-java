@@ -33,8 +33,8 @@
             #features .sub-header {
                 color: gray;
                 margin-bottom: 10px;
-                font-size: 20px;
-                line-height: 34px;
+                font-size: clamp(16px, 2vw, 20px);
+                line-height: clamp(28px, 3vw, 34px);
                 font-weight: 400;
             }
 
@@ -107,7 +107,6 @@
     <script>
         <%@ include file="/js/navbar.js"%>
         <%@ include file="/js/modal.js"%>
-        // Todo: Make navbar responsive and collapsable : 975px
         // Todo: Make main-info text center at 745px
         // Todo: Collapse footer into straight column at 745px
     </script>
