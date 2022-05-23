@@ -18,13 +18,17 @@ document.querySelector('#colour').addEventListener('change', event => { for(let 
 let updateColorSelector = () => { for(let i = 0; i < products.length; i++) document.querySelector('#colour').insertAdjacentHTML('beforeend', `<option value="` + products[i].color + `">` + products[i].color + `</option>`); }
 updateColorSelector();
 
-//--| Sets Inital Product
+//--| Sets Initial Product
 updateProduct(0);
 
-// Todo: Add alert when color is not selected.
 //--| Adds Current Product to Cart
-if (document.querySelector("#add-to-cart")) {
-    document.querySelector("#add-to-cart").addEventListener('click', e => {
+document.querySelector("#add-to-cart").addEventListener('click', e => {
+    let currentColor = document.querySelector('#colour').value;
+    if (currentColor === 'none') {
+        document.querySelector('#item .colour-error').style.visibility = 'visible';
+        let wait = () => document.querySelector('#item .colour-error').style.visibility = 'hidden';
+        const delay = setTimeout(wait, 1000);
+    } else {
         fetch('/cart', {
             method: 'POST',
             headers: {
@@ -37,5 +41,5 @@ if (document.querySelector("#add-to-cart")) {
             })
         }).then(displayShoppingCart);
         slideIn();
-    });
-}
+    }
+});
