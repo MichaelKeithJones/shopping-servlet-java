@@ -46,61 +46,66 @@
     </head>
     <body>
 
-        <jsp:include page="partials/navbar.jsp" />
-        <main>
-            <div class="container">
-                <div id="intro-header">
-                    <div class="content">
-                        <div class="text">
-                            <div class="title">Build you dream store</div>
-                            <div class="paragraph">A simple Webflow Ecommerce template to get you started.</div>
-                        </div>
-                        <a class="button" type="button" href="/products">EXPLORE</a>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div id="main-info">
-                    <div class="content">
-                        <div class="heading">
-                            <h1 class="header">This is your space</h1>
-                            <div class="sub-header">Talk about your business, your products, or yourself.</div>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="paragraph">
-                            <div class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</div>
-                            <div class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div id="features">
-                    <div class="header">Featured Products</div>
-                    <div class="sub-header">Check out new and popular products</div>
-                </div>
-            </div>
-            <div class="container">
-                <div id="cards">
-                    <c:forEach var="product" items="${products}">
-                        <div class="card">
-                            <a class="anchor" href="/details?product=${product.name}">
-                                <div class="info">
-                                    <div class="header">${product.name}</div>
-                                    <div class="text"><fmt:formatNumber value = "${product.cost}" type = "currency"/> USD</div>
-                                </div>
-                            </a>
-                        </div>
-                    </c:forEach>
-                </div>
-            </div>
-            <jsp:include page="partials/newsletter.jsp" />
-        </main>
-        <jsp:include page="partials/footer.jsp" />
+        <div class="page">
+            <jsp:include page="partials/navbar.jsp" />
 
-        <jsp:include page="partials/modal.jsp" />
+            <main>
+                <div class="container">
+                    <div id="intro-header">
+                        <div class="content">
+                            <div class="text">
+                                <div class="title">Build you dream store</div>
+                                <div class="paragraph">A simple Webflow Ecommerce template to get you started.</div>
+                            </div>
+                            <a class="button" type="button" href="/products">EXPLORE</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div id="main-info">
+                        <div class="content">
+                            <div class="heading">
+                                <h1 class="header">This is your space</h1>
+                                <div class="sub-header">Talk about your business, your products, or yourself.</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="paragraph">
+                                <div class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</div>
+                                <div class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div id="features">
+                        <div class="header">Featured Products</div>
+                        <div class="sub-header">Check out new and popular products</div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div id="cards">
+                        <c:forEach var="product" items="${products}">
+                            <div class="card">
+                                <a class="anchor" href="/details?product=${product.name}">
+                                    <div class="info">
+                                        <div class="header">${product.name}</div>
+                                        <div class="text"><fmt:formatNumber value = "${product.cost}" type = "currency"/> USD</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
+                <jsp:include page="partials/newsletter.jsp" />
+            </main>
+
+            <jsp:include page="partials/footer.jsp" />
+
+            <jsp:include page="partials/modal.jsp" />
+        </div>
 
     <script>
+        <%@ include file="/js/navbar.js"%>
         <%@ include file="/js/modal.js"%>
         // Todo: Make navbar responsive and collapsable : 975px
         // Todo: Make main-info text center at 745px

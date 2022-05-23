@@ -96,6 +96,7 @@ displayShoppingCart();
 
 //--| Modal Slide-in Function
 let slideIn = () => {
+    closeNavLinks();
     overlay.style.display = "block";
     let wait = () => {
         content.style.right = "0";
