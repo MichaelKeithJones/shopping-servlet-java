@@ -35,6 +35,11 @@
                 font-weight: 400;
                 line-height: 34px;
             }
+            #contact .body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
             #contact form {
                 width: 70%;
                 max-width: 800px;
@@ -149,6 +154,19 @@
                 max-width: 1140px;
                 height: 460px;
                 margin: 0 auto 100px;
+            }
+            #contact .message-sent {
+                display: none;
+                margin-bottom: 100px;
+                padding: 9px 30px;
+                border-radius: 0;
+                background-color: #12b878;
+                transition: background-color 400ms ease, opacity 400ms ease, color 400ms ease;
+                color: #fff;
+                font-size: 14px;
+                line-height: 26px;
+                text-decoration: none;
+                text-align: center;
             }
 
             #numbers {
@@ -277,13 +295,14 @@
                                     </div>
                                     <div class="input-email">
                                         <label for="email">Email Address</label>
-                                        <input class="text-field" type="email" name="email" id="email" placeholder="Enter your email">
+                                        <input class="text-field" type="email" name="email" id="email" placeholder="Enter your email" required>
                                     </div>
                                 </div>
                                 <label for="message">Message</label>
                                 <textarea class="text-style" name="message" id="message" placeholder="Enter your message"></textarea>
-                                <input type="button" class="button" value="Submit">
+                                <input type="submit" class="button" value="Submit">
                             </form>
+                            <div class="message-sent">Thank you! Your submission has been received!</div>
                             <div class="spacer"></div>
                         </div>
                     </div>
@@ -325,6 +344,14 @@
             <%@ include file="/js/navbar.js"%>
             <%@ include file="/js/modal.js"%>
             <%@ include file="/js/newsletter.js"%>
+
+            let contactForm = document.querySelector('#contact form');
+
+            contactForm.addEventListener('submit', e => {
+                e.preventDefault();
+                contactForm.style.display = 'none';
+                document.querySelector('#contact .message-sent').style.display = 'inline-block';
+            });
         </script>
     </body>
 </html>
