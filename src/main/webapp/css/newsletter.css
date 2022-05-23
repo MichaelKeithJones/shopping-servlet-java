@@ -28,9 +28,6 @@
     text-align: center;
     margin: 0 auto;
 }
-#newsletter .input {
-    width: 60%;
-}
 #newsletter .form {
     margin-top: 20px;
     margin-bottom: 15px;
@@ -71,6 +68,20 @@
     letter-spacing: 2px;
     text-decoration: none;
     text-transform: uppercase;
+}
+#newsletter .message-sent {
+    display: none;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    padding: 9px 30px;
+    border-radius: 0;
+    background-color: #1a1b1f;
+    transition: background-color 400ms ease, opacity 400ms ease, color 400ms ease;
+    color: #fff;
+    font-size: 14px;
+    line-height: 26px;
+    text-decoration: none;
+    text-align: center;
 }
 @media only screen and (max-width: 745px) {
     #newsletter .form {

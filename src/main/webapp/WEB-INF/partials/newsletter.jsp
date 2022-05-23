@@ -10,9 +10,10 @@
             <div class="text">Sign up to receive updates from our shop, including new tea selections and upcoming events.</div>
             <div class="input">
                 <form class="form">
-                    <input type="text" class="box" placeholder="Enter your email">
-                    <input type="button" class="button" value="SUMBIT">
+                    <input type="email" class="box" placeholder="Enter your email" required>
+                    <input type="submit" class="button" value="SUMBIT">
                 </form>
+                <div class="message-sent">Thank you! Your submission has been received!</div>
             </div>
         </div>
     </div>

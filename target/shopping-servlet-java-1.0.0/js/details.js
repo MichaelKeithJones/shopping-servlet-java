@@ -22,24 +22,20 @@ updateColorSelector();
 updateProduct(0);
 
 //--| Adds Current Product to Cart
-document.querySelector("#add-to-cart").addEventListener('click', e => {
-    let currentColor = document.querySelector('#colour').value;
-    if (currentColor === 'none') {
-        document.querySelector('#item .colour-error').style.visibility = 'visible';
-        let wait = () => document.querySelector('#item .colour-error').style.visibility = 'hidden';
-        const delay = setTimeout(wait, 1000);
-    } else {
-        fetch('/cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                action: 'add',
-                id: document.querySelector("#product-id").value,
-                quantity: document.querySelector("#product-quantity").value
-            })
-        }).then(displayShoppingCart);
-        slideIn();
-    }
+let detailsForm = document.querySelector('#item form');
+detailsForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    fetch('/cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            action: 'add',
+            id: document.querySelector("#product-id").value,
+            quantity: document.querySelector("#product-quantity").value
+        })
+    }).then(displayShoppingCart);
+    slideIn();
 });

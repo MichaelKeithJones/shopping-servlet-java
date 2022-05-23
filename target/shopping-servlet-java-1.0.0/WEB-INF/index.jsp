@@ -107,8 +107,7 @@
     <script>
         <%@ include file="/js/navbar.js"%>
         <%@ include file="/js/modal.js"%>
-        // Todo: Make main-info text center at 745px
-        // Todo: Collapse footer into straight column at 745px
+        <%@ include file="/js/newsletter.js"%>
     </script>
     </body>
 </html>

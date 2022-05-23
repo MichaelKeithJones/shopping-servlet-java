@@ -108,9 +108,6 @@
             #item .selectors {
                 margin: 30px 0 15px;
             }
-            #item .colour {
-                position: relative;
-            }
             #item .colour-label {
                 display: block;
                 margin-bottom: 10px;
@@ -134,25 +131,6 @@
                 vertical-align: middle;
                 border: 1px solid #cccccc;
                 text-transform: none;
-            }
-            #item .colour-error {
-                position: absolute;
-
-                top: 72px;
-                left: -8px;
-                z-index: 2;
-
-                visibility: hidden;
-                width: 200px;
-                height: 40px;
-                line-height: 40px;
-                background-color: whitesmoke;
-                color: black;
-                font-size: 10px;
-                border-radius: 5px;
-
-                box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
-                transition: .5s;
             }
             #item .quantity {
                 margin-bottom: 0px;
@@ -268,20 +246,19 @@
                                 <div class="value weight"></div>
                             </div>
                             <div class="divider-light"></div>
-                            <div class="selectors">
+                            <form class="selectors">
                                 <div class="colour">
-                                    <span class="colour-error">Please select an item in the list.</span>
                                     <div class="colour-label">Colour</div>
-                                    <select name="colour" id="colour" class="colour-drop">
-                                        <option value="none">Select Colour</option>
+                                    <select name="colour" id="colour" class="colour-drop" required>
+                                        <option value="">Select Colour</option>
                                     </select>
                                 </div>
                                 <div class="quantity">Quantity</div>
                                 <div class="selection">
                                     <input id="product-quantity" type="number" class="drop" min="1" value="1"/>
-                                    <input id="add-to-cart" type="button" class="button" value="Add to Cart"/>
+                                    <input id="add-to-cart" type="submit" class="button" value="Add to Cart"/>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -295,6 +272,7 @@
         <script>
             <%@ include file="/js/navbar.js"%>
             <%@ include file="/js/modal.js"%>
+            <%@ include file="/js/newsletter.js"%>
             <%@ include file="/js/details.js"%>
         </script>
     </body>

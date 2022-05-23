@@ -108,6 +108,7 @@
         <script>
             <%@ include file="/js/navbar.js"%>
             <%@ include file="/js/modal.js"%>
+            <%@ include file="/js/newsletter.js"%>
         </script>
     </body>
 </html>
