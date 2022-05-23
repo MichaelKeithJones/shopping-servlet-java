@@ -1,5 +1,17 @@
 let products = JSON.parse('${products}');
 
+//--| Sets all colors of Product
+let updateColorSelector = () => {
+    document.querySelector('#item .colour').innerHTML = `
+        <div class="colour-label">Colour</div>
+        <select name="colour" id="colour" class="colour-drop" required>
+            <option value="">Select Colour</option>
+        </select>
+    `;
+    for(let i = 0; i < products.length; i++)
+        document.querySelector('#colour').insertAdjacentHTML('beforeend', `<option value="` + products[i].color + `">` + products[i].color + `</option>`);
+}
+
 //--| Sets Current Product After Color Selection
 let updateProduct = (index) => {
     let currentProduct = products[index];
@@ -12,11 +24,10 @@ let updateProduct = (index) => {
         + currentProduct.length + ' ' + currentProduct.dimensionUnit;
     document.querySelector('#item .weight').innerHTML = currentProduct.weight + ' ' + currentProduct.weightUnit;
 }
-document.querySelector('#colour').addEventListener('change', event => { for(let i = 0; i < products.length; i++) if (event.target.value === products[i].color) updateProduct(i); });
-
-//--| Sets all colors of Product
-let updateColorSelector = () => { for(let i = 0; i < products.length; i++) document.querySelector('#colour').insertAdjacentHTML('beforeend', `<option value="` + products[i].color + `">` + products[i].color + `</option>`); }
-updateColorSelector();
+if (products[0].color !== 'None') {
+    updateColorSelector();
+    document.querySelector('#colour').addEventListener('change', event => { for(let i = 0; i < products.length; i++) if (event.target.value === products[i].color) updateProduct(i); });
+}
 
 //--| Sets Initial Product
 updateProduct(0);

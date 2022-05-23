@@ -135,8 +135,8 @@
             #item .quantity {
                 margin-bottom: 0px;
                 font-size: 12px;
-                line-height: 20px;
                 font-weight: 500;
+                line-height: 20px;
                 letter-spacing: 1px;
                 text-transform: uppercase;
                 display: block;
@@ -146,7 +146,6 @@
                 margin-top: 0;
             }
             #item .drop {
-                font: inherit;
                 width: 80px;
                 height: auto;
                 margin-top: 10px;
@@ -155,13 +154,13 @@
                 padding: 8px 12px 8px 20px;
                 background-color: #fff;
                 border: 1px solid #e4e4e4;
-                border-radius: 0;
-                transition: border-color 400ms ease;
+                color: inherit;
+                font: inherit;
                 font-size: 14px;
                 line-height: 26px;
                 display: block;
                 appearance: none;
-                color: inherit;
+                transition: border-color 400ms ease;
             }
             #item .button {
                 font: inherit;
@@ -212,6 +211,7 @@
                     width: auto;
                     margin-right: 0;
                     margin-bottom: 10px;
+                    text-align: center;
                 }
                 #item .button {
                     margin-right: 0;
@@ -247,12 +247,7 @@
                             </div>
                             <div class="divider-light"></div>
                             <form class="selectors">
-                                <div class="colour">
-                                    <div class="colour-label">Colour</div>
-                                    <select name="colour" id="colour" class="colour-drop" required>
-                                        <option value="">Select Colour</option>
-                                    </select>
-                                </div>
+                                <div class="colour"></div>
                                 <div class="quantity">Quantity</div>
                                 <div class="selection">
                                     <input id="product-quantity" type="number" class="drop" min="1" value="1"/>
