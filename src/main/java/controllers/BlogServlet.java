@@ -8,6 +8,8 @@ import javax.servlet.annotation.*;
 @WebServlet(name = "BlogServlet", urlPatterns = "/blog")
 public class BlogServlet extends HttpServlet {
 
+    public BlogServlet() { super(); }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/blog.jsp").forward(request, response);

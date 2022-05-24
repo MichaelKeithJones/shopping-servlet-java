@@ -11,6 +11,8 @@ import com.google.gson.*;
 @WebServlet(name = "DetailsServlet", urlPatterns = "/details")
 public class DetailsServlet extends HttpServlet {
 
+    public DetailsServlet() { super(); }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String productsJson = new Gson().toJson(DaoFactory.getProductsDao().getByItemName(request.getParameter("product")));

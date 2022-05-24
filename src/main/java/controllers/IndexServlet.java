@@ -10,6 +10,8 @@ import javax.servlet.annotation.*;
 @WebServlet(name = "IndexServlet", urlPatterns = "/")
 public class IndexServlet extends HttpServlet {
 
+    public IndexServlet() { super(); }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("products", DaoFactory.getProductsDao().topThreeProducts());

@@ -16,6 +16,8 @@ import com.google.gson.Gson;
 @WebServlet(name = "CartServlet", urlPatterns = "/cart")
 public class CartServlet extends HttpServlet{
 
+    public CartServlet() { super(); }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Product> products = DaoFactory.getProductsDao().getShoppingCart();

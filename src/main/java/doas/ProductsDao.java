@@ -69,16 +69,7 @@ public class ProductsDao {
         return products;
     }
 
-    public List<Product> all() {
-        try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM products");
-            return buildProductList(statement.executeQuery());
-        } catch (SQLException e) {
-            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
-        }
-    }
-
-    // Todo: List first of all products list, limit: 3      // select * from products group by item_id limit 3;
+    // select * from products group by item_id limit 3;
     public List<Product> topThreeProducts() {
         try {
             PreparedStatement statement = connection.prepareStatement("select * from products group by item_id limit 3");
@@ -88,32 +79,10 @@ public class ProductsDao {
         }
     }
 
-    // Todo: List first of all products list                // select * from products group by item_id;
+    // select * from products group by item_id;
     public List<Product> firstProducts() {
         try {
             PreparedStatement statement = connection.prepareStatement("select * from products group by item_id");
-            return buildProductList(statement.executeQuery());
-        } catch (SQLException e) {
-            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
-        }
-    }
-
-    // Todo: List all product by item                       // select * from products where item_id = 1;
-    public List<Product> findByItemId(long id) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("select * from products where item_id = ?");
-            statement.setLong(1, id);
-            return buildProductList(statement.executeQuery());
-        } catch (SQLException e) {
-            throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
-        }
-    }
-
-    // Todo: List all products by category id                 // select * from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = 4)) group by item_id;
-    public List<Product> findByCategoryId(long id) {
-        try {
-            PreparedStatement statement = connection.prepareStatement("select * from products where item_id in (select item_id from items where item_id in (select item_id from items_categories where category_id = ?)) group by item_id");
-            statement.setLong(1, id);
             return buildProductList(statement.executeQuery());
         } catch (SQLException e) {
             throw new RuntimeException("//-----| Error: Could not GET all products |-----//", e);
