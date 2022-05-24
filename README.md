@@ -13,6 +13,7 @@ Back-End:
 
 ## External Dependencies
 
+- **Google Fonts**: https://fonts.google.com/specimen/Montserrat
 - **Webflow**: https://store-starter-template.webflow.io/ - For the original idea and concept.
 
 ## Database - *Model*
