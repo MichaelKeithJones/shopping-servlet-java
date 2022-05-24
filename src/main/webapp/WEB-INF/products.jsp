@@ -106,6 +106,8 @@
         </div>
 
         <script>
+            let navbar = document.querySelector('nav #products').style.color = 'black';
+
             <%@ include file="/js/navbar.js"%>
             <%@ include file="/js/modal.js"%>
             <%@ include file="/js/newsletter.js"%>

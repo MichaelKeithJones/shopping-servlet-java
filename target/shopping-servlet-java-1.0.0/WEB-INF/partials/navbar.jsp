@@ -6,12 +6,12 @@
 <nav>
     <div class="content">
         <a class="brand" href="/">
-            <img src="https://assets.website-files.com/5c6eefaaeddf9248ac13bc72/5c6ef116eddf92775813c297_store-logo%402x.png" alt="" class="logo-image" width="65">
+            <div class="logo">Store</div>
         </a>
         <div class="links">
-            <a class="link text" href="/products">Products</a>
-            <a class="link text" href="/about">About</a>
-            <a class="link text" href="/contact">Contact</a>
+            <a id="products" class="link text" href="/products">Products</a>
+            <a id="about" class="link text" href="/about">About</a>
+            <a id="contact" class="link text" href="/contact">Contact</a>
         </div>
         <div class="buttons">
             <div id="cart-button" class="cart text">Cart 0</div>

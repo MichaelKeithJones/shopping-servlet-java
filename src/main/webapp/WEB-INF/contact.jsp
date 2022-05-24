@@ -345,6 +345,7 @@
             <%@ include file="/js/modal.js"%>
             <%@ include file="/js/newsletter.js"%>
 
+            let navbar = document.querySelector('nav #contact').style.color = 'black';
             let contactForm = document.querySelector('#contact form');
 
             contactForm.addEventListener('submit', e => {

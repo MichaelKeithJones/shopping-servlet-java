@@ -6,35 +6,34 @@
 <footer class="container">
     <div class="content">
         <a class="brand" href="/" >
-            <img src="https://assets.website-files.com/5c6eefaaeddf9248ac13bc72/5c6ef116eddf92775813c297_store-logo%402x.png" alt="" class="logo-image" width="65">
+            <div class="logo">Store</div>
         </a>
         <div class="header menu-section">Menu</div>
         <div class="listing menu-section">
-            <a class="link" href="#">Home</a>
-            <a class="link" href="#">About</a>
-            <a class="link" href="#">Contact</a>
-            <a class="link" href="#">Products</a>
-            <a class="link" href="#">Blog</a>
-            <a class="link" href="#">Styleguide</a>
+            <a class="link" href="/">Home</a>
+            <a class="link" href="/about">About</a>
+            <a class="link" href="/contact">Contact</a>
+            <a class="link" href="/products">Products</a>
+            <a class="link" href="/blog">Blog</a>
         </div>
         <div class="header categories-section">Categories</div>
         <div class="listing categories-section">
-            <a class="link" href="#">Category 1</a>
-            <a class="link" href="#">Category 2</a>
-            <a class="link" href="#">Category 3</a>
-            <a class="link" href="#">Category 4</a>
+            <a class="link" href="/products?category=Category 1">Category 1</a>
+            <a class="link" href="/products?category=Category 2">Category 2</a>
+            <a class="link" href="/products?category=Category 3">Category 3</a>
+            <a class="link" href="/products?category=Category 4">Category 4</a>
         </div>
         <div class="header help-section">Help</div>
         <div class="listing help-section">
-            <a class="link" href="#">Shipping</a>
-            <a class="link" href="#">Returns & Exchange</a>
-            <a class="link" href="#">Product Care</a>
+            <a class="link" href="/contact">Shipping</a>
+            <a class="link" href="/contact">Returns & Exchange</a>
+            <a class="link" href="/contact">Product Care</a>
         </div>
         <div class="header follow-section">Follow</div>
         <div class="listing follow-section">
-            <a class="link" href="#">Instagram</a>
-            <a class="link" href="#">Facebook</a>
-            <a class="link" href="#">Twitter</a>
+            <a class="link" href="https://www.instagram.com/" target="">Instagram</a>
+            <a class="link" href="https://www.facebook.com/" target="_blank">Facebook</a>
+            <a class="link" href="https://twitter.com/" target="_blank">Twitter</a>
         </div>
     </div>
 </footer>

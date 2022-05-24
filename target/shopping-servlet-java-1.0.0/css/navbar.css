@@ -35,9 +35,19 @@ nav .content .text {
 nav .content > .brand {
     /*--| Main |--------------------------------*/
     grid-column: 1 / 2;
+    text-decoration: none;
     /*--| Children |----------------------------*/
     display: flex;
     align-items: center;
+}
+
+nav .content > .brand > .logo{
+    /*--| Main |--------------------------------*/
+    color: #330033;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 36px;
+    text-transform: uppercase;
 }
 
 nav .content > .links {

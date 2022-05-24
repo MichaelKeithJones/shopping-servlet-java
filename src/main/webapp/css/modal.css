@@ -216,6 +216,7 @@
 }
 
 #cart-modal .checkout {
+    font: inherit;
     padding: 12px 25px;
     border-radius: 0;
     background-color: #1a1b1f;
@@ -231,9 +232,9 @@
     border-right-width: 0;
     border-top-width: 0;
     cursor: pointer;
-    display: block;
     appearance: none;
     text-align: center;
+    width: 100%;
 }
 
 #cart-modal .text {
@@ -243,4 +244,19 @@
     line-height: 26px;
     letter-spacing: 0;
     text-transform: none;
+}
+
+#cart-modal .checkout-message {
+    padding: 12px 25px;
+    border-radius: 0;
+    background-color: #db4b68;
+    transition: background-color 400ms ease, opacity 400ms ease, color 400ms ease;
+    color: #fff;
+    font-size: 14px;
+    line-height: 26px;
+    cursor: pointer;
+    display: none;
+    appearance: none;
+    text-align: center;
+    margin-top: 20px;
 }

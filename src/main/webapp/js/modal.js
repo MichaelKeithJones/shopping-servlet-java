@@ -46,9 +46,10 @@ let displayShoppingCart = () => {
                                 <div>Subtotal</div>
                                 <div class="amount">$ \${total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} USD</div>
                             </div>
-                            <div>
-                                <a class="checkout">Continue to Checkout</a>
-                            </div>
+                            <form>
+                                <input type="button" class="checkout" value="Continue to Checkout" />
+                                <div class="checkout-message">Checkout is disabled on this site.</div>
+                            </form>
                         </div>
                     </div>
                 `;
@@ -69,13 +70,13 @@ let displayShoppingCart = () => {
                         }).then(displayShoppingCart);
                     }
 
+                    //--| Checkout Response
                     if (e.target.classList.contains('checkout')) {
-                        console.log('Product Checkout');
-                        console.log(e.target);
+                        document.querySelector('#cart-modal .checkout-message').style.display = 'block';
                     }
                 });
 
-                let quantityButtons = document.querySelectorAll('#cart-modal input');
+                let quantityButtons = document.querySelectorAll('#cart-modal .upper input');
                 quantityButtons.forEach(element => element.addEventListener('change', e => {
                     fetch('/cart', {
                         method: 'POST',
