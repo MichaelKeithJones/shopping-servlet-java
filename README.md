@@ -15,7 +15,14 @@ Back-End:
 
 - **Webflow**: https://store-starter-template.webflow.io/ - For the original idea and concept.
 
-## Home
+## Database - *Model*
+
+<p align="center">Model</p>
+<p align="center">
+    <img width="387" src="./screenshots/database.png">
+</p>
+
+## Home - *View*
 
 **The Home Page** for this application is where the user is introduced to th site. It provides a small space to describe the site and features a few of the stores feature items. 
 
@@ -26,7 +33,7 @@ Back-End:
 </p>
 <p align="center"><em>Desktop / Mobile</em></p>
 
-## Products
+## Products - *View*
 
 **The Products Page** displays all available products on page load. Here a user can 'click' several links that will products by category. Upon clicking a product, the user will be sent to the product details page.
 
@@ -37,7 +44,7 @@ Back-End:
 </p>
 <p align="center"><em>Desktop / Mobile</em></p>
 
-## Details
+## Details - *View*
 
 **The Details Page** displays the product details of a previously selected item. The item quantity and or color are selected and placed in the shopping cart when the "Add to Cart" button is clicked.
 
@@ -48,7 +55,7 @@ Back-End:
 </p>
 <p align="center"><em>Desktop / Mobile</em></p>
 
-## About
+## About - *View*
 
 **The About Page** provides a space for the user to tell a story about themselves. Here users, can speak on their people, display pictures of their company and state their business philosophy.
 
@@ -59,7 +66,7 @@ Back-End:
 </p>
 <p align="center"><em>Desktop / Mobile</em></p>
 
-## Contact
+## Contact - *View*
 
 **The Contact Page** provides a form for the user to use to contact the site owner, if needed.
 
