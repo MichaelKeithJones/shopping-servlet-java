@@ -5,8 +5,9 @@ The **Store Front Template** is an individually created, full-stack project made
 Github Page: https://github.com/MichaelKeithJones/shopping-servlet-java
 
 ## Technologies
-- HTML, CSS, JavaScript, Fetch API
+
 Front-End:
+- HTML, CSS, JavaScript, Fetch API
 
 Back-End:
 - MySql, Java, JavaServer Pages (JSP) / JavaServer Pages Standard Tag Library (JSTL), Servlets (javax)
